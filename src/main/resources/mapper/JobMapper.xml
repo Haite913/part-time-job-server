@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.ptjs.Biz.mapper.JobMapper">
+    <select id="queryPage" resultType="com.team.ptjs.Api.vo.JobVo">
+        SELECT
+        job.id,
+        job.position_title,
+        job.head,
+        job.position_nature,
+        job.position_type,
+        job.require_number,
+        job.applicant_number,
+        job.job_number,
+        job.academic_year,
+        job.unit
+        from job
+        <where>
+            <if test="query.unit!='' and query.unit!=null">
+                AND job.unit Like concat('%',#{query.unit},'%')
+            </if>
+            <if test="query.positionTitle!='' and query.positionTitle!=null">
+                AND job.position_title Like concat('%',#{query.positionTitle},'%')
+            </if>
+            AND job.del_flag = 0
+        </where>
+    </select>
+
+    <select id="getDetialById" resultType="com.team.ptjs.Api.vo.JobVo">
+      select * from job where job.id = #{id}
+    </select>
+
+    <insert id="saveJob">
+        INSERT INTO job (id, position_title, head, position_nature, position_type, require_number, applicant_number, job_number, academic_year, unit)
+        VALUES (#{job.id}, #{job.position_title}, #{job.head}, #{job.position_nature}, #{job.position_type}, #{job.require_number}, #{job.applicant_number}, #{job.job_number}, #{job.academic_year}, #{job.unit});
+    </insert>
+
+</mapper>

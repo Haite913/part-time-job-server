@@ -1,6 +1,7 @@
 package com.team.ptjs.Api.dto;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
 /**
@@ -8,7 +9,6 @@ import lombok.Data;
  */
 @Data
 public class UserDto {
-
         /**
          * 用户名
          */
@@ -22,5 +22,9 @@ public class UserDto {
          * 身份 0表示学生 1表示管理员
          */
         private int identity;
-
+        /**
+         * 删除标识
+         */
+        @TableLogic
+        private int delFlag;
 }

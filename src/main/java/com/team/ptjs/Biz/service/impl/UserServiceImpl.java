@@ -6,7 +6,8 @@ import com.team.ptjs.Api.dto.UserDto;
 import com.team.ptjs.Api.entity.User;
 import com.team.ptjs.Biz.mapper.UserMapper;
 import com.team.ptjs.Biz.service.UserService;
-import com.team.ptjs.Utils.jwt.TokenUtil;
+//import com.team.ptjs.Common.Token;
+//import com.team.ptjs.Utils.jwt.TokenUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,11 @@ public class UserServiceImpl implements UserService {
         if(password!=null && password!="" && userDto.getPassword().equals(password)){
             User user = new User();
             BeanUtils.copyProperties(userDto,user);
-            String token = TokenUtil.sign(user);
-            return R.ok(0,token);
+//            Token token = new Token(TokenUtil.sign(user));
+//            return R.ok(token,"登陆成功");
+            return R.ok("登陆成功");
         }else{
-            return R.failed(1,"登陆失败");
+            return R.failed("登陆失败");
         }
     }
 }
