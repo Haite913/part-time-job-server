@@ -5,6 +5,7 @@ import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.UserDto;
 import com.team.ptjs.Biz.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,4 +25,15 @@ public class UserController {
     public R Login(@RequestBody UserDto userDto) {
         return userService.Login(userDto);
     }
+    /**
+     * 注册
+     *
+     * @param userDto
+     * @return
+     */
+    @PostMapping("/register")
+    public R register(@RequestBody UserDto userDto){
+        return userService.register(userDto);
+    }
+
 }
