@@ -12,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,35 +41,27 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
             return R.failed("登陆失败");
         }
     }
+    /**
+     * 请求注册
+     *
+     * @param userDto
+     * @return
+     */
     @Override
     public R register(UserDto userDto){
-        List<User> list = this.list();
-        User []UserList=new User[list.size()];
-        User[] UserArray = list.toArray(UserList);
+        ArrayList<User> list = (ArrayList<User>) this.list();
+        User user = new User();
+        BeanUtils.copyProperties(userDto,user);
         if(list.size()==0){
-            User user1=new User();
-            BeanUtils.copyProperties(userDto,user1);
-            this.save(user1);
+            this.save(user);
             return R.ok("注册成功");
         }
-        boolean flag=true;
-        for(User user:UserArray){
-            if (user.getUsername().equals(userDto.getUsername())) {
-                flag = false;
-                break;
+        for (User user1 : list) {
+            if (user1.getUsername().equals(userDto.getUsername())) {
+                return R.failed("注册失败,用户名已存在");
             }
         }
-        System.out.println(flag);
-        if(flag){
-            User user1=new User();
-            user1.setUsername(userDto.getUsername());
-            user1.setPassword(userDto.getPassword());
-            user1.setIdentity(userDto.getIdentity());
-            System.out.println(user1.getUsername()+"  "+user1.getPassword()+"  "+user1.getIdentity());
-            this.save(user1);
-            return R.ok("注册成功,请登录");
-        }
-        else return R.failed("用户名已存在，注册失败");
-
+        this.save(user);
+        return R.ok("注册成功,请登录");
     }
 }
