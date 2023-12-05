@@ -74,4 +74,13 @@ public class JobController {
     public R getById(@PathVariable("id") Integer id) {
         return jobService.getdetailById(id);
     }
+    /**
+     * 获取所有单位
+     *
+     * @return
+     */
+    @GetMapping("/unit")
+    public R getUnit() {
+        return jobService.getUnit();
+    }
 }

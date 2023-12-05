@@ -44,4 +44,10 @@ public interface JobService extends IService<Job> {
      * @return
      */
     R getdetailById(Integer id);
+    /**
+     * 获取所有单位
+     *
+     * @return
+     */
+    R getUnit();
 }

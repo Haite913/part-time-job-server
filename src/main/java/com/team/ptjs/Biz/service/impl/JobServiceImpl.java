@@ -6,14 +6,19 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.JobDto;
 import com.team.ptjs.Api.entity.Job;
+import com.team.ptjs.Api.entity.JobDetail;
 import com.team.ptjs.Api.query.JobQuery;
 import com.team.ptjs.Api.query.PageUtils;
+import com.team.ptjs.Api.vo.JobDetailVo;
 import com.team.ptjs.Api.vo.JobVo;
 import com.team.ptjs.Biz.mapper.JobMapper;
 import com.team.ptjs.Biz.service.JobService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -86,11 +91,23 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
     @Override
     public R getdetailById(Integer id) {
         try {
-            JobVo jobVo = baseMapper.getDetialById(id);
-            return R.ok(jobVo, "查询成功");
+            JobDetailVo jobDetailVo = baseMapper.getDetialById(id);
+            return R.ok(jobDetailVo, "查询成功");
         }catch (Exception e){
             e.printStackTrace();
             return R.failed("查询失败");
+        }
+    }
+
+    @Override
+    public R getUnit() {
+        try {
+            List<String> unitList = new ArrayList<>();
+            unitList = baseMapper.getUnit();
+            return R.ok(unitList,"获取单位成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return R.failed("获取单位失败");
         }
     }
 }
