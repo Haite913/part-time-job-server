@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -30,16 +29,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
      */
     @Override
     public R Login(UserDto userDto) {
-        String password = userMapper.getPassword(userDto.getUsername());
-        if(password!=null && password!="" && userDto.getPassword().equals(password)){
-            User user = new User();
-            BeanUtils.copyProperties(userDto,user);
-//            Token token = new Token(TokenUtil.sign(user));
-//            return R.ok(token,"登陆成功");
-            return R.ok("登陆成功");
-        }else{
-            return R.failed("登陆失败");
+//        String password = userMapper.getPassword(userDto.getUsername());
+//        if(password!=null && password!="" && userDto.getPassword().equals(password)){
+//            User user = new User();
+//            BeanUtils.copyProperties(userDto,user);
+////            Token token = new Token(TokenUtil.sign(user));
+////            return R.ok(token,"登陆成功");
+//            return R.ok("登陆成功");
+//        }else{
+//            return R.failed("登陆失败");
+//        }
+        ArrayList<User> list=(ArrayList<User>) this.list();
+        for(User user:list){
+            if(user.getUsername().equals(userDto.getUsername()) && user.getPassword().equals(userDto.getPassword())
+            && user.getIdentity()==userDto.getIdentity())
+                return R.ok("登陆成功");
         }
+        return R.failed("登陆失败");
     }
     /**
      * 请求注册
