@@ -36,7 +36,8 @@
         VALUES (#{job.id}, #{job.position_title}, #{job.head}, #{job.position_nature}, #{job.position_type}, #{job.require_number}, #{job.applicant_number}, #{job.job_number}, #{job.academic_year}, #{job.unit});
     </insert>
 
-    <select id="getUnit" resultType="java.util.List">
+
+    <select id="getUnit" resultType="java.lang.String">
         SELECT job.unit FROM job WHERE job.del_flag = 0
     </select>
 

@@ -102,8 +102,7 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
     @Override
     public R getUnit() {
         try {
-            List<String> unitList = new ArrayList<>();
-            unitList = baseMapper.getUnit();
+            ArrayList<String> unitList = baseMapper.getUnit();
             return R.ok(unitList,"获取单位成功");
         }catch (Exception e){
             e.printStackTrace();

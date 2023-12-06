@@ -10,6 +10,7 @@ import com.team.ptjs.Api.vo.JobDetailVo;
 import com.team.ptjs.Api.vo.JobVo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -21,5 +22,5 @@ public interface JobMapper extends BaseMapper<Job> {
 
     void saveJob(Job job);
 
-    List<String> getUnit();
+    ArrayList<String> getUnit();
 }
