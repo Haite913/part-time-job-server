@@ -5,7 +5,7 @@
 <mapper namespace="com.team.ptjs.Biz.mapper.UserMapper">
 
     <select id="getPassword" resultType="java.lang.String">
-        SELECT user.password FROM user WHERE user.username=#{username}
+        SELECT user_student.password FROM user WHERE user_student.username=#{username}
     </select>
 
 </mapper>

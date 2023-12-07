@@ -3,10 +3,8 @@ package com.team.ptjs.Biz.controller;
 
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.JobDto;
-import com.team.ptjs.Api.dto.UserDto;
 import com.team.ptjs.Api.query.JobQuery;
 import com.team.ptjs.Biz.service.JobService;
-import com.team.ptjs.Biz.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

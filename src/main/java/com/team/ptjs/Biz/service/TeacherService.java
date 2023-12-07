@@ -1,0 +1,8 @@
+package com.team.ptjs.Biz.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.team.ptjs.Api.entity.UserTeacher;
+
+
+public interface TeacherService extends IService<UserTeacher> {
+}
