@@ -32,8 +32,10 @@ public class UserController {
      */
     @PostMapping("/login")
     public R Login(@RequestBody UserDto userDto) {
+        //获取老师及学生用户列表
         ArrayList<UserStudent> list_student = (ArrayList<UserStudent>) userService.list();
         ArrayList<UserTeacher> list_teacher = (ArrayList<UserTeacher>) teacherService.list();
+        //执行学生登录逻辑判断
         if (userDto.getIdentity() == 1) {
             for (UserStudent user : list_student) {
                 if (user.getUsername().equals(userDto.getUsername()) && user.getPassword().equals(userDto.getPassword())
@@ -41,6 +43,7 @@ public class UserController {
                     return R.ok("登陆成功");
             }
         }
+        //执行教师登录逻辑判断
         else{
             for (UserTeacher user : list_teacher) {
                 if (user.getUsername().equals(userDto.getUsername()) && user.getPassword().equals(userDto.getPassword())
@@ -49,7 +52,6 @@ public class UserController {
             }
         }
         return R.failed("登录失败");
-//        return userService.Login(userDto);
     }
 
     /**
@@ -60,24 +62,33 @@ public class UserController {
      */
     @PostMapping("/register")
     public R register(@RequestBody UserDto userDto) {
+        //获取老师及学生用户列表
         ArrayList<UserStudent> list_student = (ArrayList<UserStudent>) userService.list();
         ArrayList<UserTeacher> list_teacher = (ArrayList<UserTeacher>) teacherService.list();
 
+        //把用户数据封装进实体类
         UserStudent userStudent = new UserStudent();
         UserTeacher userTeacher = new UserTeacher();
         BeanUtils.copyProperties(userDto, userStudent);
         BeanUtils.copyProperties(userDto, userTeacher);
 
+        //判断用户身份
         int flag_user = 0;
         if (userDto.getIdentity() == 1)
             flag_user = 1;
-
-        if (list_student.size() == 0 || list_teacher.size() == 0) {
+        //学生用户列表是否为空
+        if (list_student.size() == 0) {
             if (flag_user == 1)
                 userService.save(userStudent);
-            else teacherService.save(userTeacher);
             return R.ok("注册成功");
         }
+        //教师用户列表是否为空
+        if (list_teacher.size() == 0) {
+            if (flag_user == 0)
+                teacherService.save(userTeacher);
+            return R.ok("注册成功");
+        }
+          //判断学生用户注册是否重名
         if (flag_user == 1) {
             for (UserStudent user1 : list_student) {
                 if (user1.getUsername().equals(userDto.getUsername())) {
@@ -86,6 +97,7 @@ public class UserController {
             }
             userService.save(userStudent);
             return R.ok("注册成功,请登录");
+            //判断教师用户注册是否重名
         } else {
             for (UserTeacher user1 : list_teacher) {
                 if (user1.getUsername().equals(userDto.getUsername())) {
