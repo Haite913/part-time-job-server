@@ -1,12 +1,21 @@
 package com.team.ptjs.Biz.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.JobDto;
+import com.team.ptjs.Api.entity.ApplianceList;
 import com.team.ptjs.Api.query.JobQuery;
+import com.team.ptjs.Api.query.PageForm;
+import com.team.ptjs.Api.query.PageUtils;
+import com.team.ptjs.Biz.service.ApplianceListService;
 import com.team.ptjs.Biz.service.JobService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @AllArgsConstructor
@@ -15,10 +24,12 @@ import org.springframework.web.bind.annotation.*;
 public class JobController {
 
     private final JobService jobService;
+    @Autowired
+    private ApplianceListService applianceListService;
 
 
     /**
-     * 分页查询
+     * 岗位列表分页查询
      *
      * @param query
      * @return
@@ -26,6 +37,17 @@ public class JobController {
     @GetMapping("/page")
     public R getPage(JobQuery query) {
         return R.ok(jobService.queryPage(query));
+    }
+    /**
+     *申请列表分页查询
+     *
+     * @param query
+     * @return
+     */
+    @GetMapping("/apply")
+    public R pgeList(PageForm query){
+        System.out.println("调用了apply");
+        return R.ok(applianceListService.queryPage(query));
     }
 
     /**

@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.JobDto;
 import com.team.ptjs.Api.entity.Job;
-import com.team.ptjs.Api.entity.JobDetail;
 import com.team.ptjs.Api.query.JobQuery;
 import com.team.ptjs.Api.query.PageUtils;
 import com.team.ptjs.Api.vo.JobDetailVo;
@@ -18,7 +17,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Service
@@ -36,6 +34,7 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
         IPage<JobVo> iPage=baseMapper.queryPage(page,query);
         return new PageUtils<>(iPage);
     }
+
     /**
      * 新增工作
      *
