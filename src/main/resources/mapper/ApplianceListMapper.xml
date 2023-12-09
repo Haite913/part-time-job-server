@@ -8,4 +8,7 @@
     <select id="queryPage" resultType="com.team.ptjs.Api.entity.ApplianceList">
        select * from appliance_list where appliance_list.username = #{query.username}
     </select>
+    <select id="getDetialById" resultType="com.team.ptjs.Api.vo.ApplianceListDetailVo">
+        select * from appliance_list_detail where appliance_list_detail.job_id = #{id}
+    </select>
 </mapper>

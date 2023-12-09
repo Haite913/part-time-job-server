@@ -6,10 +6,7 @@ import com.team.ptjs.Api.query.PageForm;
 import com.team.ptjs.Biz.service.ApplianceListService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -29,5 +26,16 @@ public class ApplianceListController {
     @GetMapping("/apply")
     public R pgeList(PageForm query){
         return R.ok(applianceListService.queryPage(query));
+    }
+
+    /**
+     *申请列表分页查询
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/apply/{id}")
+    public R pgeList(@PathVariable Integer id){
+        return R.ok(applianceListService.getDetailById(id));
     }
 }

@@ -11,7 +11,6 @@ import java.time.LocalDate;
  * ApplianceListDto对象实体类(接前端实体类)
  */
 @Data
-@TableName("appliance_list")
 public class ApplianceListDto {
     /**
      * id
