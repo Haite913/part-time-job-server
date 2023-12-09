@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
+/**
+ * 岗位实体类(返回给前端)
+ */
 @Data
 public class JobVo {
     /**

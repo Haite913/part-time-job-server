@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
- * User对象实体类
+ * 学生User实体类(返回给前端)
  */
 @Data
 public class UserStudentVo {

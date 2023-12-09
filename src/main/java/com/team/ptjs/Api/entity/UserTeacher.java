@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
- * UserTeacher对象类
+ * 教师User对象类
  */
 @Data
 @TableName("user_teacher")
@@ -41,5 +41,9 @@ public class UserTeacher {
          * 管理的岗位
          */
         private String responsiblePosition;
-
+        /**
+         * 删除标识
+         */
+        @TableLogic
+        private int delFlag;
 }

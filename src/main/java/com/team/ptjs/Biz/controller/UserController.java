@@ -110,6 +110,7 @@ public class UserController {
             return R.ok("注册成功,请登录");
         }
     }
+
     /**
      * 修改个人信息
      *

@@ -3,9 +3,9 @@ package com.team.ptjs.Api.query;
 import lombok.Data;
 
 /**
- * @Author yempty
- * @Description 分页查询表单
- * @Date 2020/5/13 16:31
+ * @Author haite
+ * @Description 分页查询返回对象
+ * @Date 2023/12/07
  */
 @Data
 public class PageForm {

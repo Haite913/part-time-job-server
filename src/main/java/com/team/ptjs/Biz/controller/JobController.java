@@ -24,9 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 public class JobController {
 
     private final JobService jobService;
-    @Autowired
-    private ApplianceListService applianceListService;
-
 
     /**
      * 岗位列表分页查询
@@ -38,16 +35,7 @@ public class JobController {
     public R getPage(JobQuery query) {
         return R.ok(jobService.queryPage(query));
     }
-    /**
-     *申请列表分页查询
-     *
-     * @param query
-     * @return
-     */
-    @GetMapping("/apply")
-    public R pgeList(PageForm query){
-        return R.ok(applianceListService.queryPage(query));
-    }
+
 
     /**
      * 新增活动

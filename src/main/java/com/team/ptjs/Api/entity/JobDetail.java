@@ -7,6 +7,9 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+/**
+ * 岗位详情实体类
+ */
 @Data
 @TableName("job_detail")
 public class JobDetail{

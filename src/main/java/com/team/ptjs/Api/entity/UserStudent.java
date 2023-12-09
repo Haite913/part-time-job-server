@@ -1,11 +1,12 @@
 package com.team.ptjs.Api.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
- * User对象实体类
+ * 学生User对象实体类
  */
 @Data
 @TableName("user_student")
@@ -63,4 +64,9 @@ public class UserStudent {
      * 身份 0表示学生 1表示管理员
      */
     private int identity;
+    /**
+     * 删除标识
+     */
+    @TableLogic
+    private int delFlag;
 }

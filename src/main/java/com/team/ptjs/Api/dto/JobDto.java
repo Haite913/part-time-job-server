@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
+/**
+ * Job对象实体类(接前端实体类)
+ */
 @Data
 public class JobDto {
     /**
@@ -56,10 +59,6 @@ public class JobDto {
      * 单位
      */
     private String unit;
-    /**
-     * 删除标识
-     */
-    @TableLogic
-    private int delFlag;
+
 
 }

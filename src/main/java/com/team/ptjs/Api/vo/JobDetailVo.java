@@ -7,6 +7,9 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+/**
+ * 岗位详情实体类(返回给前端)
+ */
 @Data
 public class JobDetailVo {
     /**
@@ -18,7 +21,6 @@ public class JobDetailVo {
     /**
      * jobId
      */
-    @TableId
     private Long jobId;
 
     /**
@@ -166,9 +168,4 @@ public class JobDetailVo {
      */
     private Integer majorRestriction;
 
-    /**
-     * 删除标识
-     */
-    @TableLogic
-    private int delFlag;
 }

@@ -11,9 +11,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @Author yempty
+ * @Author haite
  * @Description 分页查询返回对象
- * @Date 2020/5/13 16:58
+ * @Date 2023/12/07
  */
 @Data
 //@ApiModel(value = "分页查询返回对象")

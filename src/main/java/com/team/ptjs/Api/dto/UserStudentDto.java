@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
- * User对象实体类
+ * UserStudentDto对象实体类(接前端实体类)
  */
 @Data
 public class UserStudentDto {

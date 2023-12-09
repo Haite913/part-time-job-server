@@ -1,4 +1,4 @@
-package com.team.ptjs.Api.entity;
+package com.team.ptjs.Api.dto;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
@@ -8,11 +8,11 @@ import lombok.Data;
 import java.time.LocalDate;
 
 /**
- * 学生申请列表实体类
+ * ApplianceListDto对象实体类(接前端实体类)
  */
 @Data
 @TableName("appliance_list")
-public class ApplianceList{
+public class ApplianceListDto {
     /**
      * id
      */
@@ -58,9 +58,4 @@ public class ApplianceList{
      * 审核状态 初始值为:等待用人单位审核
      */
     private String reviewStatus;
-    /**
-     * 删除标识
-     */
-    @TableLogic
-    private int delFlag;
 }
