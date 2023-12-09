@@ -3,9 +3,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.team.ptjs.Biz.mapper.UserMapper">
+    <update id="updateByUsername">
+        UPDATE user_student
+        <set >
+        <if test="userStudent.name!='' and userStudent.name!=null">
+            user_student.name = #{userStudent.name},
+        </if>
+        <if test="userStudent.major!='' and userStudent.major!=null">
+            user_student.major = #{userStudent.major},
+        </if>
+        <if test="userStudent.classes!='' and userStudent.classes!=null">
+            user_student.classes = #{userStudent.classes},
+        </if>
+        <if test="userStudent.BankCardNumber!='' and userStudent.BankCardNumber!=null">
+            user_student.bank_card_number = #{userStudent.BankCardNumber},
+        </if>
+        <if test="userStudent.phone!='' and userStudent.phone!=null">
+            user_student.phone = #{userStudent.phone},
+        </if>
+        <if test="userStudent.poorSymbol!='' and userStudent.poorSymbol!=null">
+            user_student.poor_symbol = #{userStudent.poorSymbol},
+        </if>
+        </set>
+        WHERE user_student.username = #{userStudent.username}
+    </update>
 
     <select id="getPassword" resultType="java.lang.String">
         SELECT user_student.password FROM user WHERE user_student.username=#{username}
+    </select>
+
+    <select id="getByUsername" resultType="com.team.ptjs.Api.entity.UserStudent">
+        SELECT * FROM user_student WHERE user_student.username=#{username}
     </select>
 
 </mapper>

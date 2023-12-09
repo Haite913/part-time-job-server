@@ -2,7 +2,9 @@ package com.team.ptjs.Biz.controller;
 
 
 import com.team.ptjs.Api.R.R;
+import com.team.ptjs.Api.dto.JobDto;
 import com.team.ptjs.Api.dto.UserDto;
+import com.team.ptjs.Api.dto.UserStudentDto;
 import com.team.ptjs.Api.entity.UserStudent;
 import com.team.ptjs.Api.entity.UserTeacher;
 import com.team.ptjs.Biz.service.TeacherService;
@@ -108,6 +110,26 @@ public class UserController {
             return R.ok("注册成功,请登录");
         }
     }
-//        return userService.register(userDto);
+    /**
+     * 修改个人信息
+     *
+     * @param userStudentDto
+     * @return
+     */
+    @PutMapping()
+    public R updateById(@RequestBody UserStudentDto userStudentDto) {
+        return  userService.modifyUserStudent(userStudentDto);
+    }
+
+    /**
+     * 通过id查询详情
+     *
+     * @param username
+     * @return
+     */
+    @GetMapping("/{username}")
+    public R getById(@PathVariable("username") String username) {
+        return userService.getDetailByUsername(username);
+    }
 }
 

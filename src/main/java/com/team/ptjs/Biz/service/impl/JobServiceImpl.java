@@ -67,7 +67,7 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
             return R.ok("删除成功");
         }catch (Exception e){
             e.printStackTrace();
-            return R.ok("删除失败");
+            return R.failed("删除失败");
         }
     }
 

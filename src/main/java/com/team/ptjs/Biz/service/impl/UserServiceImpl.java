@@ -4,11 +4,14 @@ package com.team.ptjs.Biz.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.UserDto;
+import com.team.ptjs.Api.dto.UserStudentDto;
+import com.team.ptjs.Api.entity.Job;
 import com.team.ptjs.Api.entity.UserStudent;
 import com.team.ptjs.Biz.mapper.UserMapper;
 import com.team.ptjs.Biz.service.TeacherService;
 import com.team.ptjs.Biz.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,29 @@ import java.util.ArrayList;
 @Service
 @AllArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserStudent> implements UserService {
+    @Override
+    public R modifyUserStudent(UserStudentDto userStudentDto) {
+        try{
+            UserStudent userStudent=baseMapper.getByUsername(userStudentDto.getUsername());
+            BeanUtils.copyProperties(userStudentDto,userStudent);
+            baseMapper.updateByUsername(userStudent);
+            return R.ok("编辑成功");
+        }catch(Exception e){
+            e.printStackTrace();
+            return R.failed("编辑失败");
+        }
+    }
+
+    @Override
+    public R getDetailByUsername(String username) {
+        try{
+            UserStudent userStudent=baseMapper.getByUsername(username);
+            return R.ok(userStudent,"获取成功");
+        }catch(Exception e){
+            e.printStackTrace();
+            return R.failed("获取失败");
+        }
+    }
 
 //    @Autowired
 //    private UserMapper userMapper;
