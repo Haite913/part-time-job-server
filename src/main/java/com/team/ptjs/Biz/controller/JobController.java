@@ -46,7 +46,6 @@ public class JobController {
      */
     @GetMapping("/apply")
     public R pgeList(PageForm query){
-        System.out.println("调用了apply");
         return R.ok(applianceListService.queryPage(query));
     }
 

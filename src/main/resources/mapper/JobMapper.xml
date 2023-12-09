@@ -28,7 +28,7 @@
     </select>
 
     <select id="getDetialById" resultType="com.team.ptjs.Api.vo.JobDetailVo">
-      select * from job_detail where job_detail.id = #{id}
+      select * from job_detail where job_detail.job_id = #{id}
     </select>
 
     <insert id="saveJob">

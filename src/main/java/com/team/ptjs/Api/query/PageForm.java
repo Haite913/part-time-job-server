@@ -14,4 +14,6 @@ public class PageForm {
 
     private Integer pageSize = 10;
 
+    private String username;
+
 }
