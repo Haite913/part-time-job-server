@@ -9,6 +9,7 @@
        select * from appliance_list where appliance_list.username = #{query.username}
     </select>
     <select id="getDetialById" resultType="com.team.ptjs.Api.vo.ApplianceListDetailVo">
-        select * from appliance_list_detail where appliance_list_detail.job_id = #{id}
+        select * from appliance_list_detail where appliance_list_detail.job_id = #{query.jobId} and appliance_list_detail.username = #{query.username}
     </select>
+
 </mapper>

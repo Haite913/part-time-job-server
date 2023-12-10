@@ -2,6 +2,7 @@ package com.team.ptjs.Api.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.team.ptjs.Api.entity.JobDetail;
 import com.team.ptjs.Api.entity.UserStudent;
 import lombok.Data;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
  * ApplianceListDetailDto对象实体类(接前端实体类)
  */
 @Data
+@TableName("appliance_list_detail")
 public class ApplianceListDetail {
     /**
      * id
@@ -30,12 +32,15 @@ public class ApplianceListDetail {
     /**
      * jobId
      */
-    private Long useId;
+    private Long userId;
     /**
      * 姓名
      */
     private String name;
-
+    /**
+     * 用户名
+     */
+    private String username;
     /**
      * 专业
      */

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.ptjs.Biz.mapper.ApplianceListDetailMapper">
+
+    <update id="update">
+        UPDATE appliance_list_detail
+        <set >
+            <if test="applianceListDetail.id != null">
+                appliance_list_detail.id = #{applianceListDetail.id},
+            </if>
+            <if test="applianceListDetail.applianceListId != null">
+                appliance_list_detail.appliance_list_id = #{applianceListDetail.applianceListId},
+            </if>
+            <if test="applianceListDetail.jobId != null">
+                appliance_list_detail.job_id = #{applianceListDetail.jobId},
+            </if>
+            <if test="applianceListDetail.username != null">
+                appliance_list_detail.username = #{applianceListDetail.username},
+            </if>
+            <if test="applianceListDetail.name != null">
+                appliance_list_detail.name = #{applianceListDetail.name},
+            </if>
+            <if test="applianceListDetail.major != null">
+                appliance_list_detail.major = #{applianceListDetail.major},
+            </if>
+            <if test="applianceListDetail.classes != null">
+                appliance_list_detail.classes = #{applianceListDetail.classes},
+            </if>
+            <if test="applianceListDetail.bankCardNumber != null">
+                appliance_list_detail.bank_card_number = #{applianceListDetail.bankCardNumber},
+            </if>
+            <if test="applianceListDetail.phone != null">
+                appliance_list_detail.phone = #{applianceListDetail.phone},
+            </if>
+            <if test="applianceListDetail.poorSymbol != null">
+                appliance_list_detail.poor_symbol = #{applianceListDetail.poorSymbol},
+            </if>
+            <if test="applianceListDetail.classNumber != null">
+                appliance_list_detail.class_number = #{applianceListDetail.classNumber},
+            </if>
+            <if test="applianceListDetail.average != null">
+                appliance_list_detail.average = #{applianceListDetail.average},
+            </if>
+            <if test="applianceListDetail.special != null">
+                appliance_list_detail.special = #{applianceListDetail.special},
+            </if>
+            <if test="applianceListDetail.applianceReason != null">
+                appliance_list_detail.appliance_reason = #{applianceListDetail.applianceReason},
+            </if>
+            <if test="applianceListDetail.academicYear != null">
+                appliance_list_detail.academic_year = #{applianceListDetail.academicYear},
+            </if>
+            <if test="applianceListDetail.unit != null">
+                appliance_list_detail.unit = #{applianceListDetail.unit},
+            </if>
+            <if test="applianceListDetail.positionTitle != null">
+                appliance_list_detail.position_title = #{applianceListDetail.positionTitle},
+            </if>
+            <if test="applianceListDetail.positionType != null">
+                appliance_list_detail.position_type = #{applianceListDetail.positionType},
+            </if>
+            <if test="applianceListDetail.positionLevel != null">
+                appliance_list_detail.position_level = #{applianceListDetail.positionLevel},
+            </if>
+            <if test="applianceListDetail.startWorkDate != null">
+                appliance_list_detail.start_work_date = #{applianceListDetail.startWorkDate},
+            </if>
+            <if test="applianceListDetail.endWorkDate != null">
+                appliance_list_detail.end_work_date = #{applianceListDetail.endWorkDate},
+            </if>
+            <if test="applianceListDetail.workingWeek != null">
+                appliance_list_detail.working_week = #{applianceListDetail.workingWeek},
+            </if>
+            <if test="applianceListDetail.salary != null">
+                appliance_list_detail.salary = #{applianceListDetail.salary},
+            </if>
+            <if test="applianceListDetail.teacher != null">
+                appliance_list_detail.teacher = #{applianceListDetail.teacher},
+            </if>
+            <if test="applianceListDetail.budget != null">
+                appliance_list_detail.budget = #{applianceListDetail.budget},
+            </if>
+            <if test="applianceListDetail.numberLastYear != null">
+                appliance_list_detail.number_last_year = #{applianceListDetail.numberLastYear},
+            </if>
+            <if test="applianceListDetail.applyMonth != null">
+                appliance_list_detail.apply_month = #{applianceListDetail.applyMonth},
+            </if>
+            <if test="applianceListDetail.demandMonth != null">
+                appliance_list_detail.demand_month = #{applianceListDetail.demandMonth},
+            </if>
+            <if test="applianceListDetail.hireType != null">
+                appliance_list_detail.hire_type = #{applianceListDetail.hireType},
+            </if>
+            <if test="applianceListDetail.workPlace != null">
+                appliance_list_detail.work_place = #{applianceListDetail.workPlace},
+            </if>
+            <if test="applianceListDetail.positionDuty != null">
+                appliance_list_detail.position_duty = #{applianceListDetail.positionDuty},
+            </if>
+            <if test="applianceListDetail.positionDemand != null">
+                appliance_list_detail.position_demand = #{applianceListDetail.positionDemand},
+            </if>
+            <if test="applianceListDetail.requireNumber != null">
+                appliance_list_detail.require_number = #{applianceListDetail.requireNumber},
+            </if>
+            <if test="applianceListDetail.applyNumber != null">
+                appliance_list_detail.apply_number = #{applianceListDetail.applyNumber},
+            </if>
+            <if test="applianceListDetail.passNumber != null">
+                appliance_list_detail.pass_number = #{applianceListDetail.passNumber},
+            </if>
+            <if test="applianceListDetail.reviewStatus != null">
+                appliance_list_detail.review_status = #{applianceListDetail.reviewStatus},
+            </if>
+            <if test="applianceListDetail.reviewDateTime != null">
+                appliance_list_detail.review_date_time = #{applianceListDetail.reviewDateTime},
+            </if>
+            <if test="applianceListDetail.reviewReason != null">
+                appliance_list_detail.review_reason = #{applianceListDetail.reviewReason},
+            </if>
+        </set>
+        WHERE appliance_list_detail.username = #{applianceListDetail.username} and appliance_list_detail.job_id = #{applianceListDetail.jobId}
+    </update>
+</mapper>

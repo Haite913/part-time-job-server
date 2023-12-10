@@ -25,9 +25,13 @@ public class ApplianceListDetailVo {
      */
     private Long jobId;
     /**
-     * jobId
+     * userId
      */
-    private Long useId;
+    private Long userId;
+    /**
+     * 用户名
+     */
+    private String username;
     /**
      * 姓名
      */

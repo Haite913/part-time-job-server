@@ -31,6 +31,10 @@ public class ApplianceListDetailDto {
      */
     private Long useId;
     /**
+     * 用户名
+     */
+    private String username;
+    /**
      * 姓名
      */
     private String name;
@@ -48,7 +52,7 @@ public class ApplianceListDetailDto {
     /**
      * 银行卡号
      */
-    private String BankCardNumber;
+    private String bankCardNumber;
 
     /**
      * 电话

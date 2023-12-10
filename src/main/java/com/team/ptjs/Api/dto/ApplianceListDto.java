@@ -36,7 +36,7 @@ public class ApplianceListDto {
     /**
      * 银行卡号
      */
-    private String BankCardNumber;
+    private String bankCardNumber;
 
     /**
      * 电话

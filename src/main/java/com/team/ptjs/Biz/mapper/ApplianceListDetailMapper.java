@@ -11,10 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
-public interface ApplianceListMapper extends BaseMapper<ApplianceList> {
-    IPage<ApplianceList> queryPage(Page<ApplianceList> page,@Param("query") PageForm query);
-
-    ApplianceListDetailVo getDetialById(@Param("query") PageForm query);
-
-    void onSubmit(@Param("applianceListDetail") ApplianceListDetail applianceListDetail);
+public interface ApplianceListDetailMapper extends BaseMapper<ApplianceListDetail> {
+    void update(@Param("applianceListDetail") ApplianceListDetail applianceListDetail);
 }

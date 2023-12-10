@@ -16,4 +16,6 @@ public class PageForm {
 
     private String username;
 
+    private Long jobId;
+
 }
