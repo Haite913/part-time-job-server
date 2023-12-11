@@ -17,5 +17,9 @@ class PartTimeJobServerApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void Test(){
+
+	}
 
 }
