@@ -17,7 +17,10 @@ public class ApplianceListVo {
      */
     @TableId
     private Long id;
-
+    /**
+     * jobId
+     */
+    private Long jobId;
     /**
      * 岗位名称
      */

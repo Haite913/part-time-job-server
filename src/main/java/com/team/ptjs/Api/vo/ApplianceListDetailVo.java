@@ -25,9 +25,9 @@ public class ApplianceListDetailVo {
      */
     private Long jobId;
     /**
-     * userId
+     * jobId
      */
-    private Long userId;
+    private Long useId;
     /**
      * 用户名
      */
@@ -50,7 +50,7 @@ public class ApplianceListDetailVo {
     /**
      * 银行卡号
      */
-    private String BankCardNumber;
+    private String bankCardNumber;
 
     /**
      * 电话
@@ -182,4 +182,9 @@ public class ApplianceListDetailVo {
      * 审核原因
      */
     private String reviewReason;
+    /**
+     * 在岗状态
+     */
+    private String onDutyStatus;
+
 }

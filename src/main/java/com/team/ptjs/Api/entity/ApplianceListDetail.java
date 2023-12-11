@@ -32,15 +32,16 @@ public class ApplianceListDetail {
     /**
      * jobId
      */
-    private Long userId;
-    /**
-     * 姓名
-     */
-    private String name;
+    private Long useId;
     /**
      * 用户名
      */
     private String username;
+    /**
+     * 姓名
+     */
+    private String name;
+
     /**
      * 专业
      */
@@ -54,7 +55,7 @@ public class ApplianceListDetail {
     /**
      * 银行卡号
      */
-    private String BankCardNumber;
+    private String bankCardNumber;
 
     /**
      * 电话
@@ -186,6 +187,10 @@ public class ApplianceListDetail {
      * 审核原因
      */
     private String reviewReason;
+    /**
+     * 在岗状态
+     */
+    private String onDutyStatus;
     /**
      * 删除标识
      */

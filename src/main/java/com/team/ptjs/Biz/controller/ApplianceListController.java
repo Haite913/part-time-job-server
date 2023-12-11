@@ -3,10 +3,8 @@ package com.team.ptjs.Biz.controller;
 
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.ApplianceListDetailDto;
-import com.team.ptjs.Api.entity.ApplianceListDetail;
 import com.team.ptjs.Api.query.PageForm;
 import com.team.ptjs.Biz.service.ApplianceListDetailService;
-import com.team.ptjs.Biz.service.ApplianceListService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 public class ApplianceListController {
 
     @Autowired
-    private ApplianceListService applianceListService;
-    @Autowired
     private ApplianceListDetailService applianceListDetailService;
 
     /**
@@ -30,7 +26,7 @@ public class ApplianceListController {
      */
     @GetMapping("/apply")
     public R pageList(PageForm query){
-        return R.ok(applianceListService.queryPage(query));
+        return R.ok(applianceListDetailService.queryPage(query));
     }
 
     /**
@@ -41,7 +37,7 @@ public class ApplianceListController {
      */
     @GetMapping("/apply/detail")
     public R getDetail(PageForm query){
-        return R.ok(applianceListService.getDetailById(query));
+        return R.ok(applianceListDetailService.getDetailById(query));
     }
 
     /**
@@ -63,5 +59,15 @@ public class ApplianceListController {
     @PostMapping("/apply/modify")
     public R onModify(@RequestBody ApplianceListDetailDto applianceListDetailDto){
         return R.ok(applianceListDetailService.onModify(applianceListDetailDto));
+    }
+    /**
+     * 撤销申请
+     *
+     * @param query
+     * @return
+     */
+    @DeleteMapping("/apply/unSubmit")
+    public R unSubmit(PageForm query){
+        return R.ok(applianceListDetailService.unSubmit(query));
     }
 }

@@ -1,21 +1,12 @@
 package com.team.ptjs.Biz.controller;
 
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.JobDto;
-import com.team.ptjs.Api.entity.ApplianceList;
 import com.team.ptjs.Api.query.JobQuery;
-import com.team.ptjs.Api.query.PageForm;
-import com.team.ptjs.Api.query.PageUtils;
-import com.team.ptjs.Biz.service.ApplianceListService;
 import com.team.ptjs.Biz.service.JobService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @AllArgsConstructor

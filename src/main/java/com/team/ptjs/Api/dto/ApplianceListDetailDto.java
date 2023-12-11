@@ -184,4 +184,9 @@ public class ApplianceListDetailDto {
      * 审核原因
      */
     private String reviewReason;
+    /**
+     * 在岗状态
+     */
+    private String onDutyStatus;
+
 }
