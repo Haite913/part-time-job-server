@@ -6,24 +6,38 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.ApplianceListDetailDto;
 import com.team.ptjs.Api.entity.ApplianceListDetail;
+import com.team.ptjs.Api.entity.JobDetail;
+import com.team.ptjs.Api.entity.UserStudent;
 import com.team.ptjs.Api.query.PageForm;
 import com.team.ptjs.Api.query.PageUtils;
 import com.team.ptjs.Api.vo.ApplianceListDetailVo;
 import com.team.ptjs.Api.vo.ApplianceListVo;
+import com.team.ptjs.Api.vo.JobDetailVo;
 import com.team.ptjs.Biz.mapper.ApplianceListDetailMapper;
+import com.team.ptjs.Biz.mapper.JobMapper;
+import com.team.ptjs.Biz.mapper.UserMapper;
 import com.team.ptjs.Biz.service.ApplianceListDetailService;
 import lombok.AllArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
 public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDetailMapper, ApplianceListDetail> implements ApplianceListDetailService {
+    @Autowired
+    private JobMapper jobMapper;
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public R onSubmit(ApplianceListDetailDto applianceListDetailDto) {
         try {
             ApplianceListDetail applianceListDetail = new ApplianceListDetail();
             BeanUtils.copyProperties(applianceListDetailDto,applianceListDetail);
+            applianceListDetail.setReviewStatus(0);
+            applianceListDetail.setOnDutyStatus(0);
             baseMapper.insert(applianceListDetail);
             return R.ok( "申请成功");
         }catch (Exception e){
@@ -73,6 +87,21 @@ public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDet
     public R getDetailById(PageForm query) {
         try {
             ApplianceListDetailVo applianceListDetailVo = baseMapper.getDetialById(query);
+            return R.ok(applianceListDetailVo, "查询成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return R.failed("查询失败");
+        }
+    }
+
+    @Override
+    public R getNewDetailById(PageForm query) {
+        try {
+            UserStudent userStudent = userMapper.getByUsername(query.getUsername());
+            JobDetailVo jobDetail = jobMapper.getDetialById(query.getJobId());
+            ApplianceListDetailVo applianceListDetailVo = new ApplianceListDetailVo();
+            BeanUtils.copyProperties(userStudent,applianceListDetailVo);
+            BeanUtils.copyProperties(jobDetail,applianceListDetailVo);
             return R.ok(applianceListDetailVo, "查询成功");
         }catch (Exception e){
             e.printStackTrace();

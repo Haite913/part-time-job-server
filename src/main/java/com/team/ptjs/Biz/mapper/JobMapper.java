@@ -18,7 +18,7 @@ public interface JobMapper extends BaseMapper<Job> {
 
     IPage<JobVo> queryPage(Page<JobVo> page, JobQuery query);
 
-    JobDetailVo getDetialById(Integer id);
+    JobDetailVo getDetialById(Long id);
 
     void saveJob(Job job);
 

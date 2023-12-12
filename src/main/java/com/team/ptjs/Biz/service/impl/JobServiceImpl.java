@@ -88,7 +88,7 @@ public class JobServiceImpl extends ServiceImpl<JobMapper, Job> implements JobSe
      * @return
      */
     @Override
-    public R getdetailById(Integer id) {
+    public R getdetailById(Long id) {
         try {
             JobDetailVo jobDetailVo = baseMapper.getDetialById(id);
             return R.ok(jobDetailVo, "查询成功");

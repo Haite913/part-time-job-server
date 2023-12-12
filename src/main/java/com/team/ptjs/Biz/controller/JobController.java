@@ -69,7 +69,7 @@ public class JobController {
      * @return
      */
     @GetMapping("/{id}")
-    public R getById(@PathVariable("id") Integer id) {
+    public R getById(@PathVariable("id") Long id) {
         return jobService.getdetailById(id);
     }
     /**

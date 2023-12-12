@@ -24,6 +24,18 @@
         <if test="userStudent.poorSymbol!='' and userStudent.poorSymbol!=null">
             user_student.poor_symbol = #{userStudent.poorSymbol},
         </if>
+        <if test="userStudent.schoolId!='' and userStudent.schoolId!=null">
+            user_student.school_id = #{userStudent.schoolId},
+        </if>
+        <if test="userStudent.faculty!='' and userStudent.faculty!=null">
+            user_student.faculty = #{userStudent.faculty},
+        </if>
+        <if test="userStudent.grade!='' and userStudent.grade!=null">
+            user_student.grade = #{userStudent.grade},
+        </if>
+        <if test="userStudent.qq!='' and userStudent.qq!=null">
+            user_student.qq = #{userStudent.qq},
+        </if>
         </set>
         WHERE user_student.username = #{userStudent.username}
     </update>

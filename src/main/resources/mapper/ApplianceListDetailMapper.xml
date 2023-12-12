@@ -121,6 +121,18 @@
             <if test="applianceListDetail.reviewReason != null">
                 appliance_list_detail.review_reason = #{applianceListDetail.reviewReason},
             </if>
+            <if test="applianceListDetail.schoolId!='' and applianceListDetail.schoolId!=null">
+                appliance_list_detail.school_id = #{applianceListDetail.schoolId},
+            </if>
+            <if test="applianceListDetail.faculty!='' and applianceListDetail.faculty!=null">
+                appliance_list_detail.faculty = #{applianceListDetail.faculty},
+            </if>
+            <if test="applianceListDetail.grade!='' and applianceListDetail.grade!=null">
+                appliance_list_detail.grade = #{applianceListDetail.grade},
+            </if>
+            <if test="applianceListDetail.qq!='' and applianceListDetail.qq!=null">
+                appliance_list_detail.qq = #{applianceListDetail.qq},
+            </if>
         </set>
         WHERE appliance_list_detail.username = #{applianceListDetail.username} and appliance_list_detail.job_id = #{applianceListDetail.jobId}
     </update>
@@ -151,4 +163,6 @@
     <select id="getDetialById" resultType="com.team.ptjs.Api.vo.ApplianceListDetailVo">
         select * from appliance_list_detail where appliance_list_detail.job_id = #{query.jobId} and appliance_list_detail.username = #{query.username} and appliance_list_detail.del_flag = 0
     </select>
+
+
 </mapper>

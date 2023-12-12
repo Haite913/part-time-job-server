@@ -43,7 +43,7 @@ public interface JobService extends IService<Job> {
      * @param id
      * @return
      */
-    R getdetailById(Integer id);
+    R getdetailById(Long id);
     /**
      * 获取所有单位
      *

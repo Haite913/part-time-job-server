@@ -175,7 +175,7 @@ public class ApplianceListDetailDto {
     /**
      * 审核状态 初始值为:等待用人单位审核
      */
-    private String reviewStatus;
+    private Integer reviewStatus;
     /**
      * 审核时间
      */
@@ -187,6 +187,22 @@ public class ApplianceListDetailDto {
     /**
      * 在岗状态
      */
-    private String onDutyStatus;
-
+    private Integer onDutyStatus;
+    //新增
+    /**
+     * 学号
+     */
+    private Long schoolId;
+    /**
+     * 院系
+     */
+    private String faculty;
+    /**
+     * 年级
+     */
+    private String grade;
+    /**
+     * QQ
+     */
+    private String qq;
 }

@@ -52,14 +52,25 @@ public class UserStudentVo {
      */
     private int poorSymbol;
 
-    /**
-     * 申请理由
-     */
-    private String applianceReason;
 
     /**
      * 身份 0表示学生 1表示管理员
      */
     private int identity;
-
+    /**
+     * 学号
+     */
+    private Long schoolId;
+    /**
+     * 院系
+     */
+    private String faculty;
+    /**
+     * 年级
+     */
+    private String grade;
+    /**
+     * QQ
+     */
+    private String qq;
 }

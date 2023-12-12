@@ -169,7 +169,14 @@ public class JobDetail{
      * 专业限制 0限制 1不限制
      */
     private Integer majorRestriction;
-
+    /**
+     * 岗位申请人数
+     */
+    private Integer applyNumber;
+    /**
+     * 岗位通过人数
+     */
+    private Integer passNumber;
     /**
      * 删除标识
      */

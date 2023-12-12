@@ -127,7 +127,14 @@ public class JobDetailVo {
      * 岗位职责
      */
     private String positionDuty;
-
+    /**
+     * 岗位申请人数
+     */
+    private Integer applyNumber;
+    /**
+     * 岗位通过人数
+     */
+    private Integer passNumber;
     /**
      * 岗位要求
      */

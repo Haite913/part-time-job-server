@@ -30,7 +30,7 @@ public class ApplianceListController {
     }
 
     /**
-     *申请列表分页查询
+     *申请详情
      *
      * @param query
      * @return
@@ -38,6 +38,17 @@ public class ApplianceListController {
     @GetMapping("/apply/detail")
     public R getDetail(PageForm query){
         return R.ok(applianceListDetailService.getDetailById(query));
+    }
+
+    /**
+     * 空申请详情
+     *
+     * @param query
+     * @return
+     */
+    @GetMapping("/apply/newDetail")
+    public R getNewDetail(PageForm query){
+        return R.ok(applianceListDetailService.getNewDetailById(query));
     }
 
     /**
