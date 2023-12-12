@@ -4,7 +4,6 @@ import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.entity.Job;
 import com.team.ptjs.Api.entity.JobDetail;
 import com.team.ptjs.Biz.service.JobDetailService;
-import com.team.ptjs.Biz.service.JobService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +20,7 @@ import java.util.regex.Pattern;
 @CrossOrigin
 @RequestMapping("/statistics")
 public class StatisticsController {
-    @Autowired
-    private JobService jobService;
+
     @Autowired
     private JobDetailService jobDetailService;
 
@@ -34,12 +32,12 @@ public class StatisticsController {
         Map<String, Integer> departmentNumbers = new TreeMap<>();
 
         // 查询岗位数据
-        List<Job> jobList = jobService.list();
+        List<JobDetail> jobList = jobDetailService.list();
 
         // 统计各个部门的需求人数
-        for (Job job : jobList) {
-            String department = job.getUnit();
-            int requireNumber = job.getRequireNumber();
+        for (JobDetail jobDetail : jobList) {
+            String department = jobDetail.getUnit();
+            int requireNumber = jobDetail.getRequireNumber();
 
             if (departmentNumbers.containsKey(department)) {
                 requireNumber += departmentNumbers.get(department);
@@ -63,12 +61,12 @@ public class StatisticsController {
         Map<String, Integer> positionTitleApplyNumbers = new TreeMap<>();
 
         // 查询岗位数据
-        List<Job> jobList = jobService.list();
+        List<JobDetail> jobDetailList = jobDetailService.list();
 
         // 统计各个岗位的申请人数
-        for (Job job : jobList) {
-            String positionTitle = job.getPositionTitle();
-            int applyNumber = job.getApplicantNumber();
+        for (JobDetail jobDetail : jobDetailList) {
+            String positionTitle = jobDetail.getPositionTitle();
+            int applyNumber = jobDetail.getApplicantNumber();
 
             if (positionTitleApplyNumbers.containsKey(positionTitle)) {
                 applyNumber += positionTitleApplyNumbers.get(positionTitle);

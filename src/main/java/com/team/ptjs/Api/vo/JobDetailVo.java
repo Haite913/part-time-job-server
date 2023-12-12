@@ -106,7 +106,7 @@ public class JobDetailVo {
     /**
      * 申请月数
      */
-    private Integer applyMonth;
+    private Integer applicantMonth;
 
     /**
      * 需求月数
@@ -130,11 +130,15 @@ public class JobDetailVo {
     /**
      * 岗位申请人数
      */
-    private Integer applyNumber;
+    private Integer applicantNumber;
     /**
      * 岗位通过人数
      */
     private Integer passNumber;
+    /**
+     * 在岗人数
+     */
+    private Integer jobNumber;
     /**
      * 岗位要求
      */

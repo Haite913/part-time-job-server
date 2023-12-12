@@ -3,5 +3,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.team.ptjs.Biz.mapper.JobDetailMapper">
+    <select id="queryPage" resultType="com.team.ptjs.Api.vo.JobDetailVo">
+        SELECT
+        job_detail.id,
+        job_detail.position_title,
+        job_detail.head,
+        job_detail.position_nature,
+        job_detail.position_type,
+        job_detail.require_number,
+        job_detail.applicant_number,
+        job_detail.job_number,
+        job_detail.academic_year,
+        job_detail.unit
+        from job_detail
+        <where>
+            <if test="query.unit!='' and query.unit!=null">
+                AND job_detail.unit Like concat('%',#{query.unit},'%')
+            </if>
+            <if test="query.positionTitle!='' and query.positionTitle!=null">
+                AND job_detail.position_title Like concat('%',#{query.positionTitle},'%')
+            </if>
+            AND job_detail.del_flag = 0
+        </where>
+    </select>
+
+    <select id="getDetialById" resultType="com.team.ptjs.Api.vo.JobDetailVo">
+        select * from job_detail where job_detail.id = #{id}
+    </select>
+
+    <select id="getUnit" resultType="java.lang.String">
+        SELECT job_detail.unit FROM job_detail WHERE job_detail.del_flag = 0
+    </select>
 
 </mapper>

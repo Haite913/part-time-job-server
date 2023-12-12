@@ -1,4 +1,4 @@
-package com.team.ptjs.Api.entity;
+package com.team.ptjs.Api.dto;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
@@ -12,7 +12,7 @@ import java.time.LocalDate;
  */
 @Data
 @TableName("job_detail")
-public class JobDetail{
+public class JobDetailDto {
     /**
      * id
      */

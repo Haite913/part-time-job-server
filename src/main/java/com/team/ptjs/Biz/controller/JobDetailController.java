@@ -2,19 +2,20 @@ package com.team.ptjs.Biz.controller;
 
 
 import com.team.ptjs.Api.R.R;
-import com.team.ptjs.Api.dto.JobDto;
+import com.team.ptjs.Api.dto.JobDetailDto;
 import com.team.ptjs.Api.query.JobQuery;
-import com.team.ptjs.Biz.service.JobService;
+import com.team.ptjs.Biz.service.JobDetailService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
 @CrossOrigin
 @RequestMapping("/job" )
-public class JobController {
-
-    private final JobService jobService;
+public class JobDetailController {
+    @Autowired
+    private final JobDetailService jobDetailService;
 
     /**
      * 岗位列表分页查询
@@ -24,19 +25,19 @@ public class JobController {
      */
     @GetMapping("/page")
     public R getPage(JobQuery query) {
-        return R.ok(jobService.queryPage(query));
+        return R.ok(jobDetailService.queryPage(query));
     }
 
 
     /**
-     * 新增活动
+     * 新增工作
      *
-     * @param jobDto
+     * @param jobDetailDto
      * @return
      */
     @PostMapping
-    public R save(@RequestBody JobDto jobDto) {
-        return jobService.saveJob(jobDto);
+    public R save(@RequestBody JobDetailDto jobDetailDto) {
+        return jobDetailService.saveJob(jobDetailDto);
     }
 
     /**
@@ -47,18 +48,18 @@ public class JobController {
      */
     @DeleteMapping("/{id}")
     public R removeById(@PathVariable Integer id) {
-        return R.ok(jobService.deleteById(id));
+        return R.ok(jobDetailService.deleteById(id));
     }
 
     /**
      * 修改活动信息
      *
-     * @param jobDto
+     * @param jobDetailDto
      * @return
      */
     @PutMapping()
-    public R updateById(@RequestBody JobDto jobDto) {
-        jobService.modifyJob(jobDto);
+    public R updateById(@RequestBody JobDetailDto jobDetailDto) {
+        jobDetailService.modifyJob(jobDetailDto);
         return R.ok("编辑成功");
     }
 
@@ -70,7 +71,7 @@ public class JobController {
      */
     @GetMapping("/{id}")
     public R getById(@PathVariable("id") Long id) {
-        return jobService.getdetailById(id);
+        return jobDetailService.getdetailById(id);
     }
     /**
      * 获取所有单位
@@ -79,6 +80,6 @@ public class JobController {
      */
     @GetMapping("/unit")
     public R getUnit() {
-        return jobService.getUnit();
+        return jobDetailService.getUnit();
     }
 }
