@@ -172,6 +172,11 @@ public class JobDetail{
      */
     private Integer passNumber;
     /**
+     * 在岗人数
+     */
+    private Integer jobNumber;
+
+    /**
      * 删除标识
      */
     @TableLogic

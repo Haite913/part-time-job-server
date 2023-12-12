@@ -24,11 +24,62 @@ public class StatisticsController {
     @Autowired
     private JobDetailService jobDetailService;
 
+//    /**
+//     *  统计各部门的需求人数
+//     *  统计各岗位的申请人数
+//     *  统计各岗位的每周工作时长
+//     *  统计各岗位的薪资水平
+//     * @param type
+//     * @return
+//     */
+//    @GetMapping()
+//    public R<List<Map.Entry<String, Integer>>> statistics(@RequestParam String type){
+//        Map<String, Integer> result = new TreeMap<>();
+//
+//        if ("eachDepartmentNumbers".equals(type)) {
+//            List<Job> jobList = jobService.list();
+//            for (Job job : jobList) {
+//                String department = job.getUnit();
+//                int requireNumber = job.getRequireNumber();
+//                result.put(department, result.getOrDefault(department, 0) + requireNumber);
+//            }
+//        } else if ("eachPositionApplicantsNumbers".equals(type)) {
+//            List<Job> jobList = jobService.list();
+//            for (Job job : jobList) {
+//                String positionTitle = job.getPositionTitle();
+//                int applyNumber = job.getApplicantNumber();
+//                result.put(positionTitle, result.getOrDefault(positionTitle, 0) + applyNumber);
+//            }
+//        } else if ("eachPositionWorkingHours".equals(type)) {
+//            List<JobDetail> jobDetailList = jobDetailService.list();
+//            for (JobDetail job : jobDetailList) {
+//                String positionTitle = job.getPositionTitle();
+//                String workingStr = job.getWorkingWeek();
+//                int totalHours = calculateTotalHours(workingStr);
+//                result.put(positionTitle, totalHours);
+//            }
+//        } else if ("eachPositionSalaryLevels".equals(type)) {
+//            List<JobDetail> jobDetailList = jobDetailService.list();
+//            for (JobDetail job : jobDetailList) {
+//                String positionTitle = job.getPositionTitle();
+//                int salary = job.getSalary();
+//                result.put(positionTitle, salary);
+//            }
+//        } else {
+//            // 处理未知的统计类型
+//            return R.failed("请求路径错误");
+//        }
+//
+//        List<Map.Entry<String, Integer>> resultList = new ArrayList<>(result.entrySet());
+//        return R.ok(resultList);
+//    }
+
     /**
      * 统计各个部门的需求人数
      */
     @GetMapping("/eachDepartmentNumbers")
     public R<List<Map.Entry<String, Integer>>> getEachDepartmentNumbers(){
+        System.out.println("调用接口");
         Map<String, Integer> departmentNumbers = new TreeMap<>();
 
         // 查询岗位数据
