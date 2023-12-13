@@ -50,6 +50,9 @@ public class JobDetailServiceIml extends ServiceImpl<JobDetailMapper, JobDetail>
             JobDetail jobDetail = new JobDetail();
             BeanUtils.copyProperties(jobDetailDto, jobDetail);
             jobDetail.setDelFlag(0);
+            jobDetail.setJobNumber(0);
+            jobDetail.setPassNumber(0);
+            jobDetail.setApplicantNumber(0);
             baseMapper.insert(jobDetail);
             return R.ok("新增成功");
         }catch (Exception e){
@@ -64,7 +67,7 @@ public class JobDetailServiceIml extends ServiceImpl<JobDetailMapper, JobDetail>
      * @return
      */
     @Override
-    public R deleteById(Integer id) {
+    public R deleteById(Long id) {
         try{
             this.removeById(id);
             return R.ok("删除成功");

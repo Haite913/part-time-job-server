@@ -127,5 +127,10 @@ public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDet
         }
     }
 
-
+    @Override
+    public PageUtils<ApplianceListVo> queryReviewPage(PageForm query) {
+        Page<ApplianceListVo> page = new Page<>(query.getPageNumber(), query.getPageSize());
+        IPage<ApplianceListVo> iPage=baseMapper.queryReviewPage(page,query);
+        return new PageUtils<>(iPage);
+    }
 }

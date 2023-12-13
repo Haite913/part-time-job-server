@@ -16,6 +16,10 @@ public class PageForm {
 
     private String username;
 
+    private String reviewStatus;
+
+    private String onDutyStatus;
+
     private Long jobId;
 
 }

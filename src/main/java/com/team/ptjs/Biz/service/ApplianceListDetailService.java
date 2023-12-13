@@ -27,4 +27,6 @@ public interface ApplianceListDetailService extends IService<ApplianceListDetail
     R getDetailById(PageForm query);
 
     R getNewDetailById(PageForm query);
+
+    PageUtils<ApplianceListVo> queryReviewPage(PageForm query);
 }

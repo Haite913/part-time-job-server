@@ -30,6 +30,18 @@ public class ApplianceListController {
     }
 
     /**
+     *申请列表分页查询
+     *
+     * @param query
+     * @return
+     */
+    @GetMapping("/review")
+    public R pageReviewList(PageForm query){
+        return R.ok(applianceListDetailService.queryReviewPage(query));
+    }
+
+
+    /**
      *申请详情
      *
      * @param query

@@ -58,7 +58,7 @@ public class JobDetailController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public R removeById(@PathVariable Integer id) {
+    public R removeById(@PathVariable Long id) {
         return R.ok(jobDetailService.deleteById(id));
     }
 

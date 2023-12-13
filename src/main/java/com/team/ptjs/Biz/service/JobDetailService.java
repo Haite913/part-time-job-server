@@ -31,7 +31,7 @@ public interface JobDetailService extends IService<JobDetail> {
      * @param id
      * @return
      */
-    R deleteById(Integer id);
+    R deleteById(Long id);
     /**
      * 修改工作
      *
