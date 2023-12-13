@@ -19,4 +19,5 @@ public interface JobDetailMapper extends BaseMapper<JobDetail> {
     JobDetailVo getDetialById(Long id);
 
     ArrayList<String> getUnit();
+
 }

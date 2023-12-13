@@ -1,11 +1,14 @@
 package com.team.ptjs.Biz.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.ApplianceListDetailDto;
 import com.team.ptjs.Api.entity.ApplianceListDetail;
+import com.team.ptjs.Api.entity.JobDetail;
 import com.team.ptjs.Api.entity.UserStudent;
 import com.team.ptjs.Api.query.PageForm;
 import com.team.ptjs.Api.query.PageUtils;
@@ -21,6 +24,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDetailMapper, ApplianceListDetail> implements ApplianceListDetailService {
@@ -28,7 +33,6 @@ public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDet
     private JobDetailMapper jobDetailMapper;
     @Autowired
     private UserMapper userMapper;
-
     @Override
     public R onSubmit(ApplianceListDetailDto applianceListDetailDto) {
         try {
@@ -37,6 +41,22 @@ public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDet
             applianceListDetail.setReviewStatus(0);
             applianceListDetail.setOnDutyStatus(0);
             baseMapper.insert(applianceListDetail);
+
+            String positionTitle = applianceListDetail.getPositionTitle();
+            JobDetail jobDetail = new JobDetail();
+            // 设置查询条件
+            QueryWrapper<JobDetail> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("position_title", positionTitle);
+
+            List<JobDetail> jobDetails = jobDetailMapper.selectList(queryWrapper);
+            BeanUtils.copyProperties(jobDetails.get(0),jobDetail);
+            jobDetail.setApplicantNumber(jobDetail.getApplicantNumber()+1);
+
+            // 创建一个条件构造器来匹配对应的 positionTitle
+            UpdateWrapper<JobDetail> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("position_title", positionTitle);
+            int update = jobDetailMapper.update(jobDetail, updateWrapper);
+//            System.out.println("影响的行数"+update);
             return R.ok( "申请成功");
         }catch (Exception e){
             e.printStackTrace();

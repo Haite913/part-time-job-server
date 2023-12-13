@@ -79,7 +79,6 @@ public class StatisticsController {
      */
     @GetMapping("/eachDepartmentNumbers")
     public R<List<Map.Entry<String, Integer>>> getEachDepartmentNumbers(){
-        System.out.println("调用接口");
         Map<String, Integer> departmentNumbers = new TreeMap<>();
 
         // 查询岗位数据
