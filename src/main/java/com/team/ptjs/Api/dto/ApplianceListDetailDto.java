@@ -181,6 +181,10 @@ public class ApplianceListDetailDto {
      */
     private LocalDateTime reviewDateTime;
     /**
+     * 审核人
+     */
+    private String reviewPerson;
+    /**
      * 审核原因
      */
     private String reviewReason;

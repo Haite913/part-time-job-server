@@ -52,6 +52,9 @@
             <if test="applianceListDetail.academicYear != null">
                 appliance_list_detail.academic_year = #{applianceListDetail.academicYear},
             </if>
+            <if test="applianceListDetail.reviewPerson != null">
+                appliance_list_detail.review_person = #{applianceListDetail.reviewPerson},
+            </if>
             <if test="applianceListDetail.unit != null">
                 appliance_list_detail.unit = #{applianceListDetail.unit},
             </if>
@@ -115,6 +118,9 @@
             <if test="applianceListDetail.reviewStatus != null">
                 appliance_list_detail.review_status = #{applianceListDetail.reviewStatus},
             </if>
+            <if test="applianceListDetail.onDutyStatus != null">
+                appliance_list_detail.on_duty_status = #{applianceListDetail.onDutyStatus},
+            </if>
             <if test="applianceListDetail.reviewDateTime != null">
                 appliance_list_detail.review_date_time = #{applianceListDetail.reviewDateTime},
             </if>
@@ -134,7 +140,7 @@
                 appliance_list_detail.qq = #{applianceListDetail.qq},
             </if>
         </set>
-        WHERE appliance_list_detail.username = #{applianceListDetail.username} and appliance_list_detail.job_id = #{applianceListDetail.jobId}
+        WHERE  appliance_list_detail.job_id = #{applianceListDetail.jobId}
     </update>
 
     <update id="delete">

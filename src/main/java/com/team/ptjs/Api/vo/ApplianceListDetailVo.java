@@ -153,7 +153,10 @@ public class ApplianceListDetailVo {
      * 岗位职责
      */
     private String positionDuty;
-
+    /**
+     * 审核人
+     */
+    private String reviewPerson;
     /**
      * 岗位要求
      */

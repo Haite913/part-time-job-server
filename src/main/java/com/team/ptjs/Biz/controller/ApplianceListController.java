@@ -84,6 +84,16 @@ public class ApplianceListController {
         return R.ok(applianceListDetailService.onModify(applianceListDetailDto));
     }
     /**
+     * 审核申请
+     *
+     * @param applianceListDetailDto
+     * @return
+     */
+    @PostMapping("/apply/review")
+    public R onReview(@RequestBody ApplianceListDetailDto applianceListDetailDto){
+        return R.ok(applianceListDetailService.onReview(applianceListDetailDto));
+    }
+    /**
      * 撤销申请
      *
      * @param query

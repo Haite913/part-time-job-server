@@ -24,6 +24,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -132,5 +133,25 @@ public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDet
         Page<ApplianceListVo> page = new Page<>(query.getPageNumber(), query.getPageSize());
         IPage<ApplianceListVo> iPage=baseMapper.queryReviewPage(page,query);
         return new PageUtils<>(iPage);
+    }
+
+    @Override
+    public R onReview(ApplianceListDetailDto applianceListDetailDto) {
+        try {
+            ApplianceListDetail applianceListDetail = new ApplianceListDetail();
+            BeanUtils.copyProperties(applianceListDetailDto,applianceListDetail);
+            applianceListDetail.setReviewDateTime(LocalDateTime.now());
+            if (applianceListDetailDto.getReviewStatus() == 1){
+                applianceListDetail.setOnDutyStatus(1);
+            }
+            if (applianceListDetailDto.getReviewStatus() == 2){
+                applianceListDetail.setOnDutyStatus(0);
+            }
+            baseMapper.update(applianceListDetail);
+            return R.ok( "修改申请成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return R.failed("修改申请成功");
+        }
     }
 }
