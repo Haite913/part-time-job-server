@@ -154,4 +154,12 @@ public class ApplianceListDetailServiceImpl extends ServiceImpl<ApplianceListDet
             return R.failed("修改申请成功");
         }
     }
+
+    @Override
+    public PageUtils<ApplianceListDetailVo> comment(PageForm query) {
+        Page<ApplianceListDetailVo> page = new Page<>(query.getPageNumber(), query.getPageSize());
+        IPage<ApplianceListDetailVo> iPage=baseMapper.queryCommentPage(page,query);
+        return new PageUtils<>(iPage);
+    }
+
 }

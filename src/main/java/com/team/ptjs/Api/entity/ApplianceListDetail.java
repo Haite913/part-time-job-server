@@ -216,4 +216,12 @@ public class ApplianceListDetail {
      * QQ
      */
     private String qq;
+    /**
+     * 评分
+     */
+    private Double commentScore;
+    /**
+     * 评价
+     */
+    private String comments;
 }

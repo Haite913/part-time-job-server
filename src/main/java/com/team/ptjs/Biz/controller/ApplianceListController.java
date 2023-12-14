@@ -103,4 +103,14 @@ public class ApplianceListController {
     public R unSubmit(PageForm query){
         return R.ok(applianceListDetailService.unSubmit(query));
     }
+    /**
+     * 查询评分
+     *
+     * @param query
+     * @return
+     */
+    @GetMapping("/apply/comment")
+    public R comment(PageForm query){
+        return R.ok(applianceListDetailService.comment(query));
+    }
 }

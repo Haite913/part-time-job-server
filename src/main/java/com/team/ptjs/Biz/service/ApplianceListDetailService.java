@@ -7,6 +7,7 @@ import com.team.ptjs.Api.entity.ApplianceList;
 import com.team.ptjs.Api.entity.ApplianceListDetail;
 import com.team.ptjs.Api.query.PageForm;
 import com.team.ptjs.Api.query.PageUtils;
+import com.team.ptjs.Api.vo.ApplianceListDetailVo;
 import com.team.ptjs.Api.vo.ApplianceListVo;
 
 public interface ApplianceListDetailService extends IService<ApplianceListDetail> {
@@ -31,4 +32,6 @@ public interface ApplianceListDetailService extends IService<ApplianceListDetail
     PageUtils<ApplianceListVo> queryReviewPage(PageForm query);
 
     R onReview(ApplianceListDetailDto applianceListDetailDto);
+
+    PageUtils<ApplianceListDetailVo> comment(PageForm query);
 }

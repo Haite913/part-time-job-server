@@ -22,4 +22,6 @@ public interface ApplianceListDetailMapper extends BaseMapper<ApplianceListDetai
     ApplianceListDetailVo getDetialById(@Param("query") PageForm query);
 
     IPage<ApplianceListVo> queryReviewPage(Page<ApplianceListVo> page, PageForm query);
+
+    IPage<ApplianceListDetailVo> queryCommentPage(Page<ApplianceListDetailVo> page, PageForm query);
 }
