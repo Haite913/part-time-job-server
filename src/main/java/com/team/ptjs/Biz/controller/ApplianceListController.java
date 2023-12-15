@@ -3,11 +3,16 @@ package com.team.ptjs.Biz.controller;
 
 import com.team.ptjs.Api.R.R;
 import com.team.ptjs.Api.dto.ApplianceListDetailDto;
+import com.team.ptjs.Api.dto.SubmitDto;
+import com.team.ptjs.Api.query.DataLoad;
 import com.team.ptjs.Api.query.PageForm;
 import com.team.ptjs.Biz.service.ApplianceListDetailService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -69,9 +74,19 @@ public class ApplianceListController {
      * @param applianceListDetailDto
      * @return
      */
-    @PostMapping("/apply/submit")
+    @PostMapping("/apply/submitJobInfo")
     public R onSubmit(@RequestBody ApplianceListDetailDto applianceListDetailDto){
         return R.ok(applianceListDetailService.onSubmit(applianceListDetailDto));
+    }
+
+    /**
+     * 提交申请
+     * @param submitDto
+     * @return
+     */
+    @PostMapping("/apply/submit")
+    public R onSubmit1(@RequestBody SubmitDto submitDto){
+        return R.ok(applianceListDetailService.onSubmit1(submitDto));
     }
     /**
      * 修改申请
